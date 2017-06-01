@@ -58,7 +58,7 @@
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.apache.directory.server:apacheds-jdbm-partition:2.0.0-M15" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.directory.jdbm:apacheds-jdbm1:bundle:2.0.0-M2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.directory.jdbm:apacheds-jdbm1:2.0.0-M2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.directory.server:apacheds-protocol-ldap:2.0.0-M15" level="project" />
     <orderEntry type="library" name="Maven: org.apache.directory.api:api-asn1-ber:1.0.0-M20" level="project" />
     <orderEntry type="library" name="Maven: org.apache.directory.api:api-ldap-extras-codec-api:1.0.0-M20" level="project" />

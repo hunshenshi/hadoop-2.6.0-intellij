@@ -71,5 +71,8 @@
     <orderEntry type="module" module-name="hadoop-yarn-server-tests" />
     <orderEntry type="module" module-name="hadoop-yarn-server-web-proxy" />
     <orderEntry type="module" module-name="hadoop-yarn-site" />
+    <orderEntry type="library" name="jobclient-test" level="project" />
+    <orderEntry type="library" name="yarn-server-test" level="project" />
+    <orderEntry type="library" name="common-test" level="project" />
   </component>
 </module>

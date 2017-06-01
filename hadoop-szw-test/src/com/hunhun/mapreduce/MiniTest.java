@@ -15,7 +15,10 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,10 +35,10 @@ public class MiniTest {
         setup();
         Configuration conf = mrCluster.getConfig();
 //        Configuration conf = new Configuration();
-        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-//        String[] otherArgs = new String[2];
-//        otherArgs[0] = "/Users/netease/workScript/";
-//        otherArgs[1] = "/Users/netease/szw";
+//        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        String[] otherArgs = new String[2];
+        otherArgs[0] = "/Users/netease/workScript/";
+        otherArgs[1] = "/Users/netease/szw";
 //        String[] otherArgs = args;
         if (otherArgs.length < 2) {
             System.err.println("Usage: wordcount <in> [<in>...] <out>");
@@ -44,11 +47,11 @@ public class MiniTest {
         Job job = new Job(conf, "word test");
         job.setJarByClass(MiniTest.class);
         job.setMapperClass(MyMapper.class);
-        job.setNumReduceTasks(0);
+//        job.setNumReduceTasks(0);
 //        job.setCombinerClass(IntSumReducer.class);
-//        job.setReducerClass(MyReducer.class);
+        job.setReducerClass(MyReducer.class);
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(NullWritable.class);
+        job.setOutputValueClass(IntWritable.class);
 //        job.setOutputValueClass(IntWritable.class);
         for (int i = 0; i < otherArgs.length - 1; ++i) {
             FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
@@ -61,7 +64,7 @@ public class MiniTest {
         }
         FileOutputFormat.setOutputPath(job,
                 output);
-        cleanup();
+//        cleanup();
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 
@@ -77,41 +80,16 @@ public class MiniTest {
     }
 
     public static class MyMapper
-            extends Mapper<Object, Text, Text, NullWritable> {
+            extends Mapper<Object, Text, Text, IntWritable> {
 
         private Text word = new Text();
-
-        BufferedReader reader = null;
-        Map<String, String> interestMap = new HashMap<String, String>();
-        public void setup(Context context) throws IOException {
-            InputStreamReader isr = new InputStreamReader(new FileInputStream("杭研与易效兴趣点"), "UTF-8");
-            reader = new BufferedReader(isr);
-            String line = null;
-            while((line = reader.readLine()) != null) {
-                String[] temp = line.split("\t");
-                interestMap.put(temp[0], temp[1]);
-            }
-
-        }
 
         public void map(Object key, Text value, Context context
             ) throws IOException, InterruptedException {
             String line = value.toString();
-            String[] words = line.split("\t");
-            String[] interests = words[10].split(",");
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int i=0; i< interests.length; i++) {
-                if (interestMap.containsKey(interests[i].split(":")[0])){
-                    stringBuilder.append(words[0]).append("\t").append(interests[i].split(":")[0])
-                            .append("\t").append(words[12]).append("\t").append(interestMap.get(interests[i].split(":")[0]));
-                    context.write(new Text(stringBuilder.toString()), NullWritable.get());
-                    stringBuilder.delete(0, stringBuilder.length());
-                }else {
-                    stringBuilder.append(words[0]).append("\t").append(interests[i].split(":")[0])
-                            .append("\t").append(words[12]).append("\t").append("null");
-                    context.write(new Text(stringBuilder.toString()), NullWritable.get());
-                    stringBuilder.delete(0, stringBuilder.length());
-                }
+            String[] words = line.split(" ");
+            for (int i=0; i< words.length; i++) {
+                context.write(new Text(words[i]), new IntWritable(1));
             }
         }
 

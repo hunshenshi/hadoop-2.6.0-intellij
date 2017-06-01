@@ -45,6 +45,7 @@
       <module fileurl="file://$PROJECT_DIR$/hadoop-tools/hadoop-rumen/hadoop-rumen.iml" filepath="$PROJECT_DIR$/hadoop-tools/hadoop-rumen/hadoop-rumen.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoop-tools/hadoop-sls/hadoop-sls.iml" filepath="$PROJECT_DIR$/hadoop-tools/hadoop-sls/hadoop-sls.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoop-tools/hadoop-streaming/hadoop-streaming.iml" filepath="$PROJECT_DIR$/hadoop-tools/hadoop-streaming/hadoop-streaming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hadoop-szw-test/hadoop-szw-test.iml" filepath="$PROJECT_DIR$/hadoop-szw-test/hadoop-szw-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoop-tools/hadoop-tools.iml" filepath="$PROJECT_DIR$/hadoop-tools/hadoop-tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoop-tools/hadoop-tools-dist/hadoop-tools-dist.iml" filepath="$PROJECT_DIR$/hadoop-tools/hadoop-tools-dist/hadoop-tools-dist.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoop-yarn-project/hadoop-yarn/hadoop-yarn.iml" filepath="$PROJECT_DIR$/hadoop-yarn-project/hadoop-yarn/hadoop-yarn.iml" />
