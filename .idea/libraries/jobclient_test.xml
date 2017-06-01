@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jobclient-test">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-jobclient/target/test-classes" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

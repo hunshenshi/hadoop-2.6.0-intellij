@@ -849,80 +849,80 @@ public class ContainerManagerImpl extends CompositeService implements
         }
 
         // add by szw for download file
-        Map<String,LocalResource> cntrRsrc = launchContext.getLocalResources();
-        LOG.info("{intellij} szw 1 ");
-        if (!cntrRsrc.isEmpty()) {
-          try {
-            for (Map.Entry<String, LocalResource> rsrc : cntrRsrc.entrySet()) {
-              try {
-                LocalResourceRequest req =
-                        new LocalResourceRequest(rsrc.getValue());
-                LOG.info("{intellij} ContainerManagerImpl req : " + req.toString());
-                List<String> links = ((ContainerImpl)container).pendingResources.get(req);
-                if (links == null) {
-                  links = new ArrayList<String>();
-                  ((ContainerImpl)container).pendingResources.put(req, links);
-                }
-                links.add(rsrc.getKey());
-                switch (rsrc.getValue().getVisibility()) {
-                  case PUBLIC:
-                    ((ContainerImpl)container).publicRsrcs.add(req);
-                    break;
-                  case PRIVATE:
-                    ((ContainerImpl)container).privateRsrcs.add(req);
-                    break;
-                  case APPLICATION:
-                    ((ContainerImpl)container).appRsrcs.add(req);
-                    break;
-                }
-              } catch (URISyntaxException e) {
-                LOG.info("{intellij} Got exception parsing szw " + rsrc.getKey()
-                        + " and value " + rsrc.getValue());
-                throw e;
-              }
-            }
-          } catch (URISyntaxException e) {
-            // malformed resource; abort container launch
-            LOG.warn("{intellij} Failed to parse resource-request szw ", e);
-            ((ContainerImpl)container).cleanup();
-            ((ContainerImpl)container).metrics.endInitingContainer();
-//        return ContainerState.LOCALIZATION_FAILED;
-          }
-          Map<LocalResourceVisibility, Collection<LocalResourceRequest>> req =
-                  new HashMap<LocalResourceVisibility,
-                          Collection<LocalResourceRequest>>();
-          if (!((ContainerImpl)container).publicRsrcs.isEmpty()) {
-            req.put(LocalResourceVisibility.PUBLIC, ((ContainerImpl)container).publicRsrcs);
-          }
-          if (!((ContainerImpl)container).privateRsrcs.isEmpty()) {
-            req.put(LocalResourceVisibility.PRIVATE, ((ContainerImpl)container).privateRsrcs);
-          }
-          if (!((ContainerImpl)container).appRsrcs.isEmpty()) {
-            req.put(LocalResourceVisibility.APPLICATION, ((ContainerImpl)container).appRsrcs);
-          }
-
-          LOG.info("{intellij} szw 2 ");
-          LoadingCache<Path,Future<FileStatus>> statCache =
-                  CacheBuilder.newBuilder().build(FSDownload.createStatusCacheLoader(getConfig()));
-          LocalizerContext ctxt = new LocalizerContext(
-                  container.getUser(), container.getContainerId(), container.getCredentials(), statCache);
-          for (Map.Entry<LocalResourceVisibility, Collection<LocalResourceRequest>> e :
-                  req.entrySet()) {
-            LocalResourcesTracker tracker =
-                    rsrcLocalizationSrvc.getLocalResourcesTracker(e.getKey(), container.getUser(),
-                            container.getContainerId().getApplicationAttemptId()
-                                    .getApplicationId());
-            for (LocalResourceRequest r : e.getValue()) {
-              LOG.info("{intellij} LocalResourcesTracker tracker is null ? " + tracker + tracker.toString());
-              tracker.handle(new ResourceRequestEvent(r, e.getKey(), ctxt));
-
-              LOG.info("{intellij} szw 3 invoke localizedResource.handle");
-//          ResourceRequestEvent event = new ResourceRequestEvent(r, e.getKey(), ctxt);
-//          LocalizedResource localizedResource = new LocalizedResource(r, dispatcher);   // 只有请求,得有一个事件触发状态
-//          localizedResource.handle(event);
-            }
-          }
-        }
+//        Map<String,LocalResource> cntrRsrc = launchContext.getLocalResources();
+//        LOG.info("{intellij} szw 1 ");
+//        if (!cntrRsrc.isEmpty()) {
+//          try {
+//            for (Map.Entry<String, LocalResource> rsrc : cntrRsrc.entrySet()) {
+//              try {
+//                LocalResourceRequest req =
+//                        new LocalResourceRequest(rsrc.getValue());
+//                LOG.info("{intellij} ContainerManagerImpl req : " + req.toString());
+//                List<String> links = ((ContainerImpl)container).pendingResources.get(req);
+//                if (links == null) {
+//                  links = new ArrayList<String>();
+//                  ((ContainerImpl)container).pendingResources.put(req, links);
+//                }
+//                links.add(rsrc.getKey());
+//                switch (rsrc.getValue().getVisibility()) {
+//                  case PUBLIC:
+//                    ((ContainerImpl)container).publicRsrcs.add(req);
+//                    break;
+//                  case PRIVATE:
+//                    ((ContainerImpl)container).privateRsrcs.add(req);
+//                    break;
+//                  case APPLICATION:
+//                    ((ContainerImpl)container).appRsrcs.add(req);
+//                    break;
+//                }
+//              } catch (URISyntaxException e) {
+//                LOG.info("{intellij} Got exception parsing szw " + rsrc.getKey()
+//                        + " and value " + rsrc.getValue());
+//                throw e;
+//              }
+//            }
+//          } catch (URISyntaxException e) {
+//            // malformed resource; abort container launch
+//            LOG.warn("{intellij} Failed to parse resource-request szw ", e);
+//            ((ContainerImpl)container).cleanup();
+//            ((ContainerImpl)container).metrics.endInitingContainer();
+////        return ContainerState.LOCALIZATION_FAILED;
+//          }
+//          Map<LocalResourceVisibility, Collection<LocalResourceRequest>> req =
+//                  new HashMap<LocalResourceVisibility,
+//                          Collection<LocalResourceRequest>>();
+//          if (!((ContainerImpl)container).publicRsrcs.isEmpty()) {
+//            req.put(LocalResourceVisibility.PUBLIC, ((ContainerImpl)container).publicRsrcs);
+//          }
+//          if (!((ContainerImpl)container).privateRsrcs.isEmpty()) {
+//            req.put(LocalResourceVisibility.PRIVATE, ((ContainerImpl)container).privateRsrcs);
+//          }
+//          if (!((ContainerImpl)container).appRsrcs.isEmpty()) {
+//            req.put(LocalResourceVisibility.APPLICATION, ((ContainerImpl)container).appRsrcs);
+//          }
+//
+//          LOG.info("{intellij} szw 2 ");
+//          LoadingCache<Path,Future<FileStatus>> statCache =
+//                  CacheBuilder.newBuilder().build(FSDownload.createStatusCacheLoader(getConfig()));
+//          LocalizerContext ctxt = new LocalizerContext(
+//                  container.getUser(), container.getContainerId(), container.getCredentials(), statCache);
+//          for (Map.Entry<LocalResourceVisibility, Collection<LocalResourceRequest>> e :
+//                  req.entrySet()) {
+//            LocalResourcesTracker tracker =
+//                    rsrcLocalizationSrvc.getLocalResourcesTracker(e.getKey(), container.getUser(),
+//                            container.getContainerId().getApplicationAttemptId()
+//                                    .getApplicationId());
+//            for (LocalResourceRequest r : e.getValue()) {
+//              LOG.info("{intellij} LocalResourcesTracker tracker is null ? " + tracker + tracker.toString());
+//              tracker.handle(new ResourceRequestEvent(r, e.getKey(), ctxt));
+//
+//              LOG.info("{intellij} szw 3 invoke localizedResource.handle");
+////          ResourceRequestEvent event = new ResourceRequestEvent(r, e.getKey(), ctxt);
+////          LocalizedResource localizedResource = new LocalizedResource(r, dispatcher);   // 只有请求,得有一个事件触发状态
+////          localizedResource.handle(event);
+//            }
+//          }
+//        }
 
         this.context.getNMStateStore().storeContainer(containerId, request);
         dispatcher.getEventHandler().handle(

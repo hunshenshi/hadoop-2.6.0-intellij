@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/classes/production" />
+    <output-test url="file://$MODULE_DIR$/classes/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="hadoop-annotations" />
+    <orderEntry type="module" module-name="hadoop-ant" />
+    <orderEntry type="module" module-name="hadoop-archives" />
+    <orderEntry type="module" module-name="hadoop-assemblies" />
+    <orderEntry type="module" module-name="hadoop-auth" />
+    <orderEntry type="module" module-name="hadoop-auth-examples" />
+    <orderEntry type="module" module-name="hadoop-aws" />
+    <orderEntry type="module" module-name="hadoop-client" />
+    <orderEntry type="module" module-name="hadoop-common" />
+    <orderEntry type="module" module-name="hadoop-common-project" />
+    <orderEntry type="module" module-name="hadoop-datajoin" />
+    <orderEntry type="module" module-name="hadoop-dist" />
+    <orderEntry type="module" module-name="hadoop-distcp" />
+    <orderEntry type="module" module-name="hadoop-extras" />
+    <orderEntry type="module" module-name="hadoop-gridmix" />
+    <orderEntry type="module" module-name="hadoop-hdfs" />
+    <orderEntry type="module" module-name="hadoop-hdfs-bkjournal" />
+    <orderEntry type="module" module-name="hadoop-hdfs-httpfs" />
+    <orderEntry type="module" module-name="hadoop-hdfs-nfs" />
+    <orderEntry type="module" module-name="hadoop-hdfs-project" />
+    <orderEntry type="module" module-name="hadoop-kms" />
+    <orderEntry type="module" module-name="hadoop-main" />
+    <orderEntry type="module" module-name="hadoop-mapreduce" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-client" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-client-app" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-client-common" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-client-core" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-client-hs" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-client-hs-plugins" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-client-jobclient" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-client-shuffle" />
+    <orderEntry type="module" module-name="hadoop-mapreduce-examples" />
+    <orderEntry type="module" module-name="hadoop-maven-plugins" />
+    <orderEntry type="module" module-name="hadoop-minicluster" />
+    <orderEntry type="module" module-name="hadoop-minikdc" />
+    <orderEntry type="module" module-name="hadoop-nfs" />
+    <orderEntry type="module" module-name="hadoop-openstack" />
+    <orderEntry type="module" module-name="hadoop-pipes" />
+    <orderEntry type="module" module-name="hadoop-project" />
+    <orderEntry type="module" module-name="hadoop-project-dist" />
+    <orderEntry type="module" module-name="hadoop-rumen" />
+    <orderEntry type="module" module-name="hadoop-sls" />
+    <orderEntry type="module" module-name="hadoop-streaming" />
+    <orderEntry type="module" module-name="hadoop-tools" />
+    <orderEntry type="module" module-name="hadoop-tools-dist" />
+    <orderEntry type="module" module-name="hadoop-yarn" />
+    <orderEntry type="module" module-name="hadoop-yarn-api" />
+    <orderEntry type="module" module-name="hadoop-yarn-applications" />
+    <orderEntry type="module" module-name="hadoop-yarn-applications-distributedshell" />
+    <orderEntry type="module" module-name="hadoop-yarn-applications-unmanaged-am-launcher" />
+    <orderEntry type="module" module-name="hadoop-yarn-client" />
+    <orderEntry type="module" module-name="hadoop-yarn-common" />
+    <orderEntry type="module" module-name="hadoop-yarn-project" />
+    <orderEntry type="module" module-name="hadoop-yarn-registry" />
+    <orderEntry type="module" module-name="hadoop-yarn-server" />
+    <orderEntry type="module" module-name="hadoop-yarn-server-applicationhistoryservice" />
+    <orderEntry type="module" module-name="hadoop-yarn-server-common" />
+    <orderEntry type="module" module-name="hadoop-yarn-server-nodemanager" />
+    <orderEntry type="module" module-name="hadoop-yarn-server-resourcemanager" />
+    <orderEntry type="module" module-name="hadoop-yarn-server-tests" />
+    <orderEntry type="module" module-name="hadoop-yarn-server-web-proxy" />
+    <orderEntry type="module" module-name="hadoop-yarn-site" />
+  </component>
+</module>

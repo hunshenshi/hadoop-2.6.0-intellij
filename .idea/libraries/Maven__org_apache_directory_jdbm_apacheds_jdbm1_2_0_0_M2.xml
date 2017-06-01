@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Maven: org.apache.directory.jdbm:apacheds-jdbm1:bundle:2.0.0-M2">
+  <library name="Maven: org.apache.directory.jdbm:apacheds-jdbm1:2.0.0-M2">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M2/apacheds-jdbm1-2.0.0-M2.bundle!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M2/apacheds-jdbm1-2.0.0-M2.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M2/apacheds-jdbm1-2.0.0-M2-javadoc.jar!/" />

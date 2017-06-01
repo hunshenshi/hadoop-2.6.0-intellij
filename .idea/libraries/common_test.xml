@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="common-test">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/hadoop-common-project/hadoop-common/target/test-classes" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
